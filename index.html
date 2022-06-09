@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TODO-list</title>
+
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Task list</h1>
+      <form id="new-task-form">
+        <input type="text" id="new-task-input" placeholder="Add a new task." />
+        <input type="submit" id="new-task-submit" value="Add task" />
+      </form>
+    </header>
+
+    <main>
+      <section class="task-list">
+        <h2>Tasks</h2>
+        <div id="tasks">
+          <!-- here will be added the JS code for tasks -->
+        </div>
+
+        <input type="submit" id="all-tasks-save" value="Save tasks" />
+        <input
+          type="submit"
+          id="all-tasks-delete"
+          value="Delete tasks history"
+        />
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
