@@ -1,12 +1,14 @@
-window.addEventListener("load", () => {
+const storage = window.localStorage;
+const saveAllTasks = document.querySelector("#all-tasks-save");
+const deleteTasksHistory = document.querySelector("#all-tasks-delete");
+
+let save = {};
+const createTask = window.addEventListener("load", () => {
   const form = document.querySelector("#new-task-form");
   const input = document.querySelector("#new-task-input");
   const listEl = document.querySelector("#tasks");
-  const storage = window.localStorage;
-  const saveAllTasks = document.querySelector("#all-tasks-save");
-  const deleteTasksHistory = document.querySelector("#all-tasks-delete");
 
-  let save = {};
+  let taskNum = window.localStorage.length;
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -70,25 +72,30 @@ window.addEventListener("load", () => {
   });
 
   // Needs fixing cause it doesnt work at the moment
-  function load() {
-    if (storage.getItem(save)) {
-      save = JSON.parse(storage.getItem("save"));
-      console.log("Save found:", save);
-      listEl.innerHTML = save.count;
-    } else {
-      save.count = 0;
-      console.log("save not found");
-      listEl.innerHTML = null;
-    }
-  }
-
-  load();
-
-  saveAllTasks.addEventListener("click", () => {
-    storage.setItem("save", JSON.stringify(save));
-  });
-
-  deleteTasksHistory.addEventListener("click", () => {
-    storage.removeItem("save");
-  });
 });
+
+console.log(window.localStorage);
+
+// function load() {
+//   if (storage.getItem(save)) {
+//     save = JSON.parse(storage.getItem("save"));
+//     console.log("Save found:", save);
+//     listEl.innerHTML = save.count;
+//   } else {
+//     save.count = 0;
+//     console.log("save not found");
+//     listEl.innerHTML = null;
+//   }
+// }
+
+// load();
+
+saveAllTasks.addEventListener("click", () => {
+  storage.setItem("save", JSON.stringify(save));
+});
+
+deleteTasksHistory.addEventListener("click", () => {
+  storage.removeItem("save");
+});
+
+console.log(save);
